@@ -1,19 +1,20 @@
 const express = require('express');
 const router = express.Router();
+const {errorHandler} = require('../middelwares/errorHandler.middleware')
 const { getPlacesController,
-        patchPlacesController,
+        patchPlacesByIdController,
         postPlacesController,
         getPlacesIdController } = require('../controllers/places.controller')
 
 
 // get all items
-router.get('/', getPlacesController);
+router.get('/', getPlacesController, errorHandler);
 //get item by id
-router.get('/:id', getPlacesIdController)
+router.get('/:id', getPlacesIdController, errorHandler)
 //create an item
-router.post('/', postPlacesController);
+router.post('/', postPlacesController, errorHandler);
 //update an item
-router.patch('/', patchPlacesController);
+router.patch('/:id', patchPlacesByIdController, errorHandler);
 
 
 module.exports = router;

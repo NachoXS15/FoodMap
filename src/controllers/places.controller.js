@@ -35,12 +35,16 @@ async function postPlacesController(req, res, next){
     }
 };
 
-async function patchPlacesController(req, res, next){
-    const data = req.body;
+
+//update data from an item
+async function patchPlacesByIdController(req, res, next){
     try {
-        
+        const {id} = req.params;
+        const data = req.body;
+        const place = await PlacesService.updatePlaceById(id, data);
+        res.json(place)
     } catch (error) {
-        
+        next(error)
     }
 }
 
@@ -48,7 +52,7 @@ async function patchPlacesController(req, res, next){
 module.exports = {
     getPlacesController,
     postPlacesController,
-    patchPlacesController,
+    patchPlacesByIdController,
     getPlacesIdController
     
 };

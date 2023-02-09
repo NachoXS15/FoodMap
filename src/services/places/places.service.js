@@ -34,18 +34,25 @@ async function savePlaces(data) {
     }
 }
 
-async function updatePlaces(data) {
-    const {body:{id}} = req;
+async function updatePlaceById(id, data) {
     try {
-        const place = await Place.findById()
+        const {name, score, hood} = data;
+        const place = await Place.findById(id);
+        place.name = name;
+        place.score = score;
+        place.hood = hood;
+        await place.save();
+        return {
+            operation: "ok"
+        }
     } catch (error) {
-        throw error
+        throw error;
     }
 }
 
 module.exports = {
     getPlaces,
     savePlaces,
-    updatePlaces,
+    updatePlaceById,
     getPlaceById
 }
