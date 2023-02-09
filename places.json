@@ -1,0 +1,33 @@
+{
+    "places": [
+        {
+            "id": 1,
+            "name": "LeCoffee",
+            "hood": "Centro",
+            "score": 5,
+            "socialMedia": "https://www.instagram.com/lecoffee.lr/",
+            "coordinates": {
+                "latitude": "",
+                "longitude": ""
+            }
+        },
+        {
+            "id": 1,
+            "name": "Fausto",
+            "hood": "Centro",
+            "score": 3,
+            "socialmedia": "https://www.instagram.com/fausto.lr/",
+            "latitude": "",
+            "longitude": ""
+        },
+        {
+            "id": 1,
+            "name": "Heisenburger",
+            "hood": "Centro",
+            "score": 4,
+            "socialmedia": "https://www.instagram.com/h3isenburger.lr/",
+            "latitude": "",
+            "longitude": ""
+        }
+    ]
+}
