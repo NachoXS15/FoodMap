@@ -4,7 +4,8 @@ const {errorHandler} = require('../middelwares/errorHandler.middleware')
 const { getPlacesController,
         patchPlacesByIdController,
         postPlacesController,
-        getPlacesIdController } = require('../controllers/places.controller')
+        getPlacesIdController,
+        deletePlaceController } = require('../controllers/places.controller')
 
 
 // get all items
@@ -15,6 +16,8 @@ router.get('/:id', getPlacesIdController, errorHandler)
 router.post('/', postPlacesController, errorHandler);
 //update an item
 router.patch('/:id', patchPlacesByIdController, errorHandler);
+//delete an item
+router.delete ('/:id', deletePlaceController, errorHandler);
 
 
 module.exports = router;

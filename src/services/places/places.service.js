@@ -34,6 +34,7 @@ async function savePlaces(data) {
     }
 }
 
+//update an element operation
 async function updatePlaceById(id, data) {
     try {
         const {name, score, hood} = data;
@@ -50,9 +51,23 @@ async function updatePlaceById(id, data) {
     }
 }
 
+//deletes an element
+async function deletePlace(id) {
+    try {
+        const place = await Place.findById(id);
+        await place.delete();
+        return{
+            operation: 'ok'
+        }
+    } catch (error) {
+        throw error; 
+    }
+}
+
 module.exports = {
     getPlaces,
     savePlaces,
     updatePlaceById,
-    getPlaceById
+    getPlaceById,
+    deletePlace
 }

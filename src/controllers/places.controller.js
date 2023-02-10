@@ -48,11 +48,23 @@ async function patchPlacesByIdController(req, res, next){
     }
 }
 
+//deletes an item
+async function deletePlaceController(req, res, next){
+    try {
+        const {id} = req.params;
+        const data = req.body;
+        const place = await PlacesService.deletePlace(id, data);
+        res.json(place)
+    } catch (error) {
+        next(error)
+    }
+}
+
 
 module.exports = {
     getPlacesController,
     postPlacesController,
     patchPlacesByIdController,
-    getPlacesIdController
-    
+    getPlacesIdController,
+    deletePlaceController
 };
